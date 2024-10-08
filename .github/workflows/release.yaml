@@ -1,0 +1,38 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'docs/**'
+      - '**.md'
+      - '.vscode/**'
+      - '.idea/**'
+
+permissions:
+  contents: read
+  packages: read
+
+jobs:
+  SupplyChain-contracts-validate:
+    name: Run SupplyChain-contracts release
+    secrets: inherit
+    uses: ./.github/workflows/SupplyChain-contracts-ci.yaml
+
+  SupplyChain-contracts-release:
+    name: Run SupplyChain-contracts release
+    secrets: inherit
+    uses: ./.github/workflows/SupplyChain-contracts-cd.yaml
+    needs: SupplyChain-contracts-validate
+
+  SupplyChain-frontend-validate:
+    name: Run SupplyChain-frontend release
+    secrets: inherit
+    uses: ./.github/workflows/SupplyChain-frontend-ci.yaml
+
+  SupplyChain-frontend-release:
+    name: Run SupplyChain-frontend release
+    secrets: inherit
+    uses: ./.github/workflows/SupplyChain-frontend-cd.yaml
+    needs: SupplyChain-frontend-validate

@@ -1,0 +1,11 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: 2.0.11
+_src_path: gh:algorandfoundation/algokit-fullstack-template
+author_email: mtblaser2002@gmail.com
+author_name: ZeroToH3ro
+cloud_provider: vercel
+contract_name: supply_chain
+deployment_language: python
+preset_name: production
+project_name: SupplyChain
+

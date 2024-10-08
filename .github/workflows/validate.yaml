@@ -1,0 +1,14 @@
+name: Pull Request validation
+
+on: [pull_request]
+
+
+jobs:
+  SupplyChain-contracts-ci:
+    name: Run SupplyChain-contracts validation
+    uses: ./.github/workflows/SupplyChain-contracts-ci.yaml
+
+  SupplyChain-frontend-ci:
+    name: Run SupplyChain-frontend validation
+    uses: ./.github/workflows/SupplyChain-frontend-ci.yaml
+
